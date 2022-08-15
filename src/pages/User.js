@@ -14,8 +14,6 @@ const User = () => {
     dispatch({ type: "SET_LOADING" });
     (async () => {
       const userData = await getUserAndRepos(login);
-
-      console.log(userData);
       dispatch({ type: "GET_USER_AND_REPOS", payload: userData });
     })();
   }, [login, dispatch]);
@@ -62,7 +60,7 @@ const User = () => {
                 Visit GitHub Profile
               </a>
 
-              <div className="flex mt-4 border-b text-slate-400 rounded-md font-serif border-slate-900 shadow shadow-zinc-800">
+              <div className="flex gap-2 flex-col md:flex-row mt-4 border-b text-slate-400 rounded-md font-serif border-slate-900 shadow shadow-zinc-800">
                 <div className="flex-1 border-r border-slate-600 p-2">
                   <p>Location</p>
                   <strong className="text-white font-extrabold">
@@ -84,7 +82,7 @@ const User = () => {
               </div>
             </div>
           </div>
-          <div className="flex mt-4 p-4 rounded-md border-b text-slate-400  font-serif border-slate-900 shadow shadow-zinc-800">
+          <div className="flex flex-col md:flex-row mt-4 p-4 rounded-md border-b text-slate-400  font-serif border-slate-900 shadow shadow-zinc-800">
             <div className="flex flex-1 border-r justify-between border-slate-600 p-4">
               <div>
                 <p>Followers</p>
