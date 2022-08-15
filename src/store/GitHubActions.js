@@ -13,6 +13,7 @@ const github = axios.create({
 // Get Search Users
 export const getUsersSearch = async (search) => {
   const result = await github(`search/users?q=${search}`);
+
   return result.data.items;
 };
 
@@ -23,7 +24,6 @@ export const getUserAndRepos = async (userLogin) => {
     github.get(`users/${userLogin}/repos`),
   ]);
 
-  console.log(userData)
   return {
     user: userData.data,
     repos: userRepos.data,
