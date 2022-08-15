@@ -4,14 +4,21 @@ import LoadingSpinner from "../LoadingSpinner";
 
 const UserList = () => {
   const { users, loading, searchText } = useGitHub();
+
   if (loading) return <LoadingSpinner />;
   else
     return (
       <div className="flex flex-col sm:items-stretch">
         <h1 className="font-bold font-sans md:text-4xl p-3">
-          {!users.length
-            ? "Search Github Users"
-            : `Search Results of   ${searchText} is ${users.length}`}
+          {!searchText && "Search Github Users"}
+
+          {users.length === 0 && searchText && "No Users Found"}
+
+          {users.length > 0 && (
+            <>
+             Search result for {searchText} is {users.length}
+            </>
+          )}
         </h1>
 
         {users.length > 0 && (
